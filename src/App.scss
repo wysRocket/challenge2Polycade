@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap";
+
 body, html {
 	height: 100%;
 }
@@ -36,4 +38,27 @@ body, html {
 
 .App-link {
 	color: #61dafb;
+}
+.profile-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 30px;
+}
+.numHealth {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+.pbHealth.green {
+	.progress-bar {
+	  background: #5cb85c;
+	}
+}
+.pbHealth.yellow {
+	.progress-bar {
+	  background: #f0ad4e;
+	}
+}
+.mt30 {
+	margin-top: 30px;
 }
