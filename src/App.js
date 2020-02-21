@@ -1,5 +1,8 @@
 import React from 'react';
 import {Route, Switch, Link} from 'react-router-dom';
+import {BrowserRouter} from "react-router-dom";
+import store from './redux/redux-store';
+import {Provider} from 'react-redux';
 import './App.scss';
 import Home from './components/Home/Home'
 import MachinesContainer from './components/Machines/MachinesContainer';
@@ -26,4 +29,11 @@ function App () {
 	);
 }
 
-export default App;
+const AppContainer = (props) => {
+	return <BrowserRouter>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </BrowserRouter>
+}
+export default AppContainer;

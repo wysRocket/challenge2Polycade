@@ -32,7 +32,7 @@
 		"server": "node server/index.js",
 		"start": "react-scripts start",
 		"build": "EXTEND_ESLINT=true react-scripts build",
-		"test": "react-app-rewired test"
+		"test": "react-scripts test"
 	},
 	"browserslist": {
 		"production": [

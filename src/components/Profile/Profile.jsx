@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import Health from '../Health/Health';
 import { Field, reduxForm } from 'redux-form';
 import {Input} from './../../utils/FromControl';
