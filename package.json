@@ -17,6 +17,7 @@
 		"react-scripts": "3.3.0",
 		"redux": "^4.0.5",
 		"redux-form": "^8.3.0",
+		"redux-test-utils": "^0.3.0",
 		"redux-thunk": "^2.3.0",
 		"ws": "^7.2.1"
 	},
@@ -26,7 +27,8 @@
 		"eslint": "^6.8.0",
 		"koa": "^2.11.0",
 		"koa-bodyparser": "^4.2.1",
-		"koa-router": "^8.0.6"
+		"koa-router": "^8.0.6",
+		"react-test-renderer": "^16.12.0"
 	},
 	"scripts": {
 		"server": "node server/index.js",

@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import {Input} from './../../utils/FromControl';
 import {required} from './../../utils/validator';
 
-const MachineNameForm = (props) => {
+export const MachineNameForm = (props) => {
     return (
         <div>
             <form onSubmit={props.handleSubmit}>
@@ -13,14 +13,18 @@ const MachineNameForm = (props) => {
                 className="form-control" 
                 component={Input} 
                 validate={[required]} 
-                placeholder="Machine" />
-                <button className="btn btn-primary float-right"> Submit </button>
+                placeholder="Machine" 
+                data-testid="machine_name"/>
+                
+                <button data-testid="submitButton" className="btn btn-primary float-right"> 
+                    Submit 
+                </button>
             </form>
         </div>
     )
 }
 
-const MachineNameReduxForm = reduxForm({form: 'machine_name'})(MachineNameForm);
+export const MachineNameReduxForm = reduxForm({form: 'machine_name'})(MachineNameForm);
 
 
 const Profile = (props) => {
