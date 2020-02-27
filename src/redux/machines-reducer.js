@@ -1,4 +1,5 @@
 import {machinesAPI} from './../api/api';
+import {reset} from 'redux-form';
 
 const SET_ALL_MACHINES = 'SET_ALL_MACHINES';
 const SET_MACHINE_PROFILE = 'SET_MACHINE_PROFILE';
@@ -70,6 +71,7 @@ export const updateMachineName = (machineId, newName) => async (dispatch) => {
     let response = await machinesAPI.updateMachineName(machineId, newName)
       if (response.status === 200) {
         dispatch(setNameUpdateOne(response.data.name))
+        dispatch(reset('machine_name'))
       }
   };
 

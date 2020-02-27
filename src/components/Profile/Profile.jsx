@@ -13,7 +13,7 @@ export const MachineNameForm = (props) => {
                 className="form-control" 
                 component={Input} 
                 validate={[required]} 
-                placeholder="Machine" 
+                placeholder={props.placeholder} 
                 data-testid="machine_name"/>
                 
                 <button data-testid="submitButton" className="btn btn-primary float-right"> 
@@ -36,7 +36,7 @@ const Profile = (props) => {
    }
     ws.onmessage = (e) => {
         const message = JSON.parse(e.data)
-        if (message.id == props.machineId) {
+        if (message.id === props.machineId) {
             props.setHealthUpdateOne(message.health)
         }
         }
@@ -55,7 +55,7 @@ const Profile = (props) => {
 
                 Name:
                 <div >
-                    <MachineNameReduxForm onSubmit={pushOnServ} />
+                    <MachineNameReduxForm onSubmit={pushOnServ} placeholder={props.profile.name}/>
                 </div>
             </div>
 
