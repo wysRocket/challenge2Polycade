@@ -3,7 +3,8 @@ import {machinesAPI} from './../api/api';
 const SET_ALL_MACHINES = 'SET_ALL_MACHINES';
 const SET_MACHINE_PROFILE = 'SET_MACHINE_PROFILE';
 const HEALTH_UPDATE_ALL = 'HEALTH_UPDATE_ALL';
-const HEALTH_UPDATE_ONE = 'HEALTH_UPDATE_ONE'
+const HEALTH_UPDATE_ONE = 'HEALTH_UPDATE_ONE';
+const NAME_UPDATE_ONE = 'NAME_UPDATE_ONE';
 
 let initialState = {
     machinesInfo: [
@@ -41,6 +42,9 @@ const machinesReducer = (state = initialState, action) => {
         case HEALTH_UPDATE_ONE: {
             return {...state, profile: {...state.profile, health: action.health}}
         }
+        case NAME_UPDATE_ONE: {
+            return {...state, profile: {...state.profile, name: action.name}}
+        }
         default: return state;
 }}
 
@@ -48,6 +52,7 @@ export const setAllMachines = (param) => ({ type: SET_ALL_MACHINES, param });
 export const setMachineProfile = (profile) => ({type: SET_MACHINE_PROFILE, profile});
 export const setHealthUpdateAll = (message) => ({ type: HEALTH_UPDATE_ALL, message });
 export const setHealthUpdateOne = (health) => ({ type: HEALTH_UPDATE_ONE, health });
+export const setNameUpdateOne = (name) => ({ type: NAME_UPDATE_ONE, name });
 
 export const getAllMachinesInfo = () => async (dispatch) => {
     try {
@@ -63,7 +68,8 @@ export const getMachineProfile = (machineId) => async (dispatch) => {
 
 export const updateMachineName = (machineId, newName) => async (dispatch) => {
     let response = await machinesAPI.updateMachineName(machineId, newName)
-      if (response.data.resultCode === 0) {
+      if (response.status === 200) {
+        dispatch(setNameUpdateOne(response.data.name))
       }
   };
 

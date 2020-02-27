@@ -43,7 +43,7 @@ const Profile = (props) => {
    }, [])
 
     const pushOnServ = (formData) => {
-    console.log(formData)
+ //   console.log(formData)
     props.updateMachineName(props.machineId, formData.machine_n)
     }
 

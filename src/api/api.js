@@ -13,6 +13,6 @@ export const machinesAPI = {
         return instance.get(`machines/` + machineId)
     },
     updateMachineName (machineId, newName) {
-        return instance.put(`machine/` + machineId, {name: newName})
+        return instance.put(`machines/` + machineId, {name: newName})
     }     
 }
